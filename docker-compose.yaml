@@ -18,14 +18,22 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=password
 
-  php-apache:
+
+  pr1:
     build: .
     ports:
-      - "8080:80"
+      - "80:80"
     volumes:
-      - ./src/html:/var/www/html
+      - ./src/html/db:/var/www/html
     links:
       - db
+
+  pr2:
+    build: .
+    ports:
+      - "80:80"
+    volumes:
+      - ./src/html/pr2:/var/www/html
 
 volumes:
   db_volume:
