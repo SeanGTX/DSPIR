@@ -9,6 +9,8 @@ services:
       - ./cfg/nginx.conf:/etc/nginx/nginx.conf
     ports:
       - "80:80"
+    links:
+      - apache
 
   apache:
     container_name: server
